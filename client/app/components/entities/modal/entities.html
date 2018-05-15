@@ -1,0 +1,56 @@
+<md-dialog class="fullscreen-dialog">
+  <form ng-cloak>
+    <md-toolbar>
+      <p class="text-center md-subhead small-modal-label">2016 KPI:$15M Renewal Revenue (Strategic Goal)</p>
+      <md-button class="md-icon-button close-button" ng-click="$ctrl.close()">
+        <md-icon
+          aria-label="Close dialog"
+          class="material-icons step"
+          ng-bind="'close'">
+        </md-icon>
+      </md-button>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-content class="md-padding" layout="column" style="width: 786px; margin: 0 auto;">
+        <h1 class="text-center md-display-1">Add entities</h1>
+        <div class="row items-container">
+          <div class="col">
+            <md-input-container class="md-icon-float md-block">
+              <label>
+                <md-icon
+                  aria-label="search"
+                  class="material-icons step"
+                  ng-bind="'search'">
+                </md-icon>
+                Search entity</label>
+
+              <input ng-model="$strl.search" type="text">
+            </md-input-container>
+          </div>
+
+          <md-list class="style-custom">
+            <md-list-item class="md-2-line" ng-repeat="item in $ctrl.items | filter: $strl.search">
+              <div class="md-avatar md-item-avatar">
+                <md-checkbox
+                  ng-model="item.status"
+                  class="md-warn md-align-top-left" flex>
+              </div>
+              <div class="md-list-item-text">
+                <h3>{{item.label}}</h3>
+                <p>{{item.description}}</p>
+              </div>
+              <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+          </md-list>
+
+
+        </div>
+      </md-content>
+    </md-dialog-content>
+    <md-dialog-actions layout="column">
+      <md-button class="md-raised btn-green" ng-click="$ctrl.close()">
+        Connect
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

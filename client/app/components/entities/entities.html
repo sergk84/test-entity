@@ -1,0 +1,48 @@
+<div layout="row">
+  <div flex="30" flex-offset="35">
+    <div>
+      <div class="entities">
+        <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+          <md-button class="md-fab md-mini-custom" ng-click="$ctrl.addEntities()">
+            <md-icon
+              aria-label="plus"
+              class="material-icons step"
+              ng-bind="'add'">
+            </md-icon>
+          </md-button>
+          <div>
+            <p class="md-subhead" ng-if="!filtered.length">Connect entity</p>
+            <p class="md-subhead" ng-if="filtered.length > 0">Entities Connected <span>({{filtered.length}})</span></p>
+          </div>
+          <span flex></span>
+          <div>
+            <md-button class="md-icon-button" aria-label="More" ng-if="filtered.length > 0"
+                       ng-init="$ctrl.collapse = false" ng-click="$ctrl.collapse = !$ctrl.collapse">
+              <md-icon ng-if="$ctrl.collapse"
+                       aria-label="search"
+                       class="material-icons step"
+                       ng-bind="'expand_less'">
+              </md-icon>
+              <md-icon ng-if="!$ctrl.collapse"
+                       aria-label="search"
+                       class="material-icons step"
+                       ng-bind="'expand_more'">
+              </md-icon>
+            </md-button>
+          </div>
+        </section>
+
+        <md-list class="custom-list" ng-show="$ctrl.collapse">
+          <md-list-item class="md-2-line custom-item"
+                        ng-repeat="item in filtered = ($ctrl.items | filter: $ctrl.statusFilter)">
+            <div class="md-list-item-text">
+              <h3>{{item.label}}</h3>
+              <p>{{item.description}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+
+      </div>
+    </div>
+  </div>
+</div>

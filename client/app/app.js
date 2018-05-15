@@ -4,11 +4,16 @@ import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
 import 'normalize.css';
+import ngMaterial from 'angular-material/index';
+import 'angular-material/angular-material.scss';
+import ngAria from 'angular-aria';
 
 angular.module('app', [
     uiRouter,
     Common,
-    Components
+    Components,
+    ngAria,
+    ngMaterial
   ])
   .config(($locationProvider) => {
     "ngInject";
